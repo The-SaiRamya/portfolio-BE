@@ -1,7 +1,12 @@
 const fastify = require('fastify')({ logger: true });
 const { initDb } = require('./db/db');
 const enquiryRoutes = require('./routes/enquiry');
+const express = require('express');
+const cors = require('cors');
+const app = express();
 
+// Allow all origins
+app.use(cors());
 const startApp = async () => {
   try {
     // Initialize the database
